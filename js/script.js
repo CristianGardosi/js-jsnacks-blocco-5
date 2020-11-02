@@ -83,9 +83,53 @@ console.log(newArray);
 
 
 // JSnack 3 ******************************************
+// (NB!!! CON ECMASCRIPT6 SI FA IN MANIERA DIVERSA)
 // Creiamo un array di oggetti (scelti da voi)
 // Creiamo una copia da questo array di partenza e aggiungiamo ai singoli elementi una nuova proprietà position che contiene una lettera casuale.
 // Non dobbiamo modificare l'array iniziale.
+var arrayOggetti = [
+    {
+        nome: 'RayBan',
+        tipo: 'Occhiali da sole',
+        prezzo: 178
+    },
+    {
+        nome: 'Carrera',
+        tipo: 'Occhiali da sole',
+        prezzo: 139
+    },
+    {
+        nome: 'Persol',
+        tipo: 'Occhiali da vista',
+        prezzo: 399
+    }
+
+];
+
+var nuovoArrayOggetti = [];
+// Questo metodo sostituisce .slice e .concat che nella copia degli array di oggetti non sono indicati
+for (var i = 0; i < arrayOggetti.length; i++) {
+    var copiaOggetti = {
+        nome: arrayOggetti[i].nome,
+        tipo: arrayOggetti[i].tipo,
+        prezzo: arrayOggetti[i].prezzo,
+        position: generaLettere()
+    }
+}
+console.table(nuovoArrayOggetti);
+
+// FUNZIONE GENERA LETTERE RANDOM
+function generaLettere() {
+    var lettere = 'abcdefghilmnopqrstuvz';
+    var letteraGenerata = lettere[numeriRandom(0, lettere.length - 1)];
+    return letteraGenerata;
+
+}
+// Numeri random
+function numeriRandom(min, max) {
+    return Math.floor( Math.random() * (max - min + 1) ) + min;
+}
+
 
 
 
